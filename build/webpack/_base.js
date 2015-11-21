@@ -36,6 +36,7 @@ const webpackConfig = {
   },
   module : {
     loaders : [
+      // Babel
       {
         test : /\.(js|jsx)$/,
         exclude : /node_modules/,
@@ -58,6 +59,8 @@ const webpackConfig = {
           }
         }
       },
+
+      // Sass
       {
         test    : /\.scss$/,
         loaders : [
@@ -67,6 +70,9 @@ const webpackConfig = {
           'sass-loader'
         ]
       },
+      // css-modules
+      { test: /\.css$/,          loader: 'style-loader!css-loader?modules!postcss-loader' },
+
       /* eslint-disable */
       { test: /\.woff(\?.*)?$/,  loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff" },
       { test: /\.woff2(\?.*)?$/, loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2" },
